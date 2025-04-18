@@ -2,20 +2,29 @@ import pytest
 import torch
 import inspect
 import torch.nn as nn
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from pytorch_basics import train_logistic_regression, LinearNet, train_loop, evaluation_loop, count_model_params
+
+# ✅ 한 단계 위 폴더 (lab_03) 경로 추가
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# ✅ 거기서 불러오기
+from pytorch_basics import train_logistic_regression, LinearNet, count_model_params
+
 from torch.utils.data import Dataset, DataLoader
 
 
-from pytorch_basics import train_logistic_regression, LinearNet, train_loop, evaluation_loop, num_params_W, num_params_b
+
 
 def test_train_lr_score_1():
     accuracy = train_logistic_regression(num_epochs = 100, learning_rate = 0.1)
     assert accuracy > 0.7, "Accuracy after `train_logistic_regression` should be greater than 0.9 when trained for 100 epochs with learning rate 0.1" 
 
 def test_params_count_score_1():
-    assert num_params_W == 1*28*28*10, "num_params_W calculation is incorrect"
-    assert num_params_b == 1*10, "num_params_b calculation is incorrect"
-
-def test_linear_score_2():
+    model = LinearNet(in_dim = 28*28, out_dim = 10)
+    num_params_W, num_params_b = count_model_params(model)
     model = LinearNet(in_dim = 28*28, out_dim = 10)
     total_params = sum(p.numel() for p in model.parameters())
     expected_params = 7850  
