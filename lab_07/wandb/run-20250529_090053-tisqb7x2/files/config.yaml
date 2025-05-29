@@ -1,0 +1,89 @@
+wandb_version: 1
+
+mode:
+  desc: null
+  value: train
+device:
+  desc: null
+  value: cuda
+data_root_dir:
+  desc: null
+  value: /datasets
+num_workers:
+  desc: null
+  value: 4
+model_architecture:
+  desc: null
+  value: resnet50
+pretrained:
+  desc: null
+  value: IMAGENET1K_V2
+batch_size:
+  desc: null
+  value: 64
+learning_rate:
+  desc: null
+  value: 0.01
+num_epochs:
+  desc: null
+  value: 10
+checkpoint_path:
+  desc: null
+  value: checkpoints/checkpoint.pth
+best_model_path:
+  desc: null
+  value: checkpoints/best_model.pth
+checkpoint_save_interval:
+  desc: null
+  value: 10
+resume_training:
+  desc: null
+  value: null
+wandb_project_name:
+  desc: null
+  value: CIFAR10-experiments
+wandb_experiment_name:
+  desc: null
+  value: ResNet-50_pretrained
+dataset_name:
+  desc: null
+  value: CIFAR10
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.9
+    cli_version: 0.17.7
+    framework: huggingface
+    huggingface_version: 4.45.2
+    is_jupyter_run: true
+    is_kaggle_kernel: false
+    start_time: 1748509253
+    t:
+      1:
+      - 1
+      - 5
+      - 11
+      - 41
+      - 49
+      - 53
+      - 55
+      2:
+      - 1
+      - 5
+      - 11
+      - 41
+      - 49
+      - 53
+      - 55
+      3:
+      - 2
+      - 13
+      - 16
+      - 23
+      4: 3.11.9
+      5: 0.17.7
+      6: 4.45.2
+      8:
+      - 1
+      - 5
+      13: linux-x86_64
